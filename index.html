@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>计算器</title>
+    <style type="text/css">
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            font-family: '微软雅黑';
+        }
+        #calculator{
+            width: 250px;
+            height: 300px;
+            background-color: #fdfdfd;
+            margin: 20px auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 5px #ccc;
+        }
+        .screen{
+            width: 230px;
+            height: 40px;
+            background-color: #fff;
+            margin: 0 auto;
+            padding: 5px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 5px #ccc;
+            font-size: 18px;
+            text-align: right;
+            line-height: 40px;
+        }
+        .key{
+            width: 50px;
+            height: 40px;
+            background-color: #fdfdfd;
+            margin: 0 5px 5px 0;
+            float: left;
+            line-height: 40px;
+            text-align: center;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 5px #ccc;
+        }
+        .key:hover{
+            background-color: #e6e6e6;
+        }
+    </style>
+</head>
+<body>
+    <div id="calculator">
+        <div class="screen">0</div>
+        <div class="key">7</div>
+        <div class="key">8</div>
+        <div class="key">9</div>
+        <div class="key">/</div>
+        <div class="key">4</div>
+        <div class="key">5</div>
+        <div class="key">6</div>
+        <div class="key">*</div>
+        <div class="key">1</div>
+        <div class="key">2</div>
+        <div class="key">3</div>
+        <div class="key">-</div>
+        <div class="key">0</div>
+        <div class="key">.</div>
+        <div class="key">=</div>
+        <div class="key">+</div>
+    </div>
+    <script type="text/javascript">
+        window.onload = function(){
+            //获取所有的按钮
+            var btns = document.getElementsByClassName('key');
+            //获取屏幕
+            var screen = document.getElementsByClassName('screen')[0];
+            //定义一个变量存储结果
+            var result = 0;
+            //定义一个变量存储操作符
+            var operator = '';
+            //定义一个变量存储当前输入的值
+            var currentVal = 0;
+            //遍历所有按钮
+            for(var i=0; i<btns.length; i++){
+                //为每个按钮添加点击事件
+                btns[i].onclick = function(){
+                    //获取当前按钮的值
+                    var val = this.innerText;
+                    //判断是否是数字
+                    if(!isNaN(val)){
+                        //如果是数字，则将当前值乘以10，加上当前输入的值
+                        currentVal = currentVal*10 + parseInt(val);
+                        //将当前值显示在屏幕上
+                        screen.innerText = currentVal;
+                    }else if(val == '+' || val == '-' || val == '*' || val == '/'){
+                        //如果是运算符，则将当前值赋值给结果，并将当前值清零
+                        result = currentVal;
+                        currentVal = 0;
+                        //将当前运算符赋值给操作符
+                        operator = val;
+                    }else if(val == '='){
+                        //如果是等号，则根据操作符，计算当前结果
+                        switch (operator){
+                            case '+':
+                                result += currentVal;
+                                break;
+                            case '-':
+                                result -= currentVal;
+                                break;
+                            case '*':
+                                result *= currentVal;
+                                break;
+                            case '/':
+                                result /= currentVal;
+                                break;
+                        }
+                        //将结果显示在屏幕上
+                        screen.innerText = result;
+                        //将结果赋值给当前值
+                        currentVal = result;
+                        //清零操作符
+                        operator = '';
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
