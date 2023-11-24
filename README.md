@@ -1,10 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="ANSI">
+  <title>已完成</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      text-align: center;
+      border: 1px solid black; /* 设置边框样式 */
+      padding: 20px; /* 内边距 */
+    }
+    .title {
+      font-size: 30px;
+      font-weight: bold;
+      white-space: pre; /* 保留空白字符 */
+    }
+    .subtitle {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+    .button {
+      font-size: 18px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .button:hover {
+      background-color: #45a049;
+    }
+    .footer-link {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <h1 class="title">     下载 CX-PE 防破解版     </h1>
-    <h2 class="subtitle">下载(CXPE当前未公测，将下载 V3.0 Fly-OS)</h2>
-    <button class="button" onclick="window.location.href='https://musetransfer.com/s/tpy80roju%20'">下载</button>
+    <h1 class="title">     恭喜完成问卷     </h1>
   </div>
-  <a class="footer-link" href="https://space.bilibili.com/1654354651">作者主页</a>
+  <a class="footer-link" href="https://space.bilibili.com/3493269243693229">作者主页</a>
 </body>
 </html>
